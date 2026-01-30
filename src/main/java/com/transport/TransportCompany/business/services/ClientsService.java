@@ -1,6 +1,5 @@
 package com.transport.TransportCompany.business.services;
 
-import java.math.BigInteger;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,14 +21,11 @@ public class ClientsService implements IService<Client>{
 	}
 
 	@Override
-	public Client GetById(BigInteger id) {
+	public Client GetById(Long id) {
 		Optional<Client> res = clientsRepo.findById(id);
 		if (res.isPresent())
 			return res.get();
 		return null;
 	}
-
-
-
 
 }

@@ -1,7 +1,5 @@
 package com.transport.TransportCompany.persistence.entities;
 
-import java.math.BigDecimal;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
@@ -22,25 +20,24 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "employees")
-public class Employee {
+@Table(name = "vehicles")
+public class Vehicle {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
-    @Column(name = "name", nullable = false)
-    private String name;
+    @Column(name = "model", nullable = false)
+    private String model;
 
-    @Column(name = "salary", nullable = false)
-    private BigDecimal salary;
-
-	@JsonIgnore
-	@ManyToOne
-    @JoinColumn(name = "FK_Company", nullable = false)
-    private Company company;
+    @Column(name = "capacity", nullable = false)
+    private short capacity;
+	
+    @Column(name = "max_load_kg", nullable = false)
+    private int maxLoadKG;
 
 	@JsonIgnore
 	@ManyToOne
-    @JoinColumn(name = "FK_Vehicle", nullable = true)
-    private Vehicle vehicle;
+    @JoinColumn(name = "FK_vehicle_type")
+    private VehicleType vehicleType;
+
 }

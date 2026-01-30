@@ -1,7 +1,5 @@
 package com.transport.TransportCompany.persistence.entities;
 
-import java.math.BigInteger;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,17 +20,13 @@ import lombok.NoArgsConstructor;
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private BigInteger id;
+    private long id;
 
     @Column(name = "name", nullable = false)
     private String name;
 
     @Column(name = "income", nullable = false)
     private double income;
-
-	public BigInteger getClient_id() {
-		return id;
-	}
 
 	public String getName() {
 		return name;

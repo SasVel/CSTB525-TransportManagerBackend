@@ -1,6 +1,5 @@
 package com.transport.TransportCompany.persistence.entities;
 
-import java.math.BigInteger;
 import java.sql.Date;
 
 import jakarta.persistence.Column;
@@ -23,7 +22,7 @@ import lombok.NoArgsConstructor;
 public class TransportInquiry {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private BigInteger id;
+    private long id;
 
     @Column(name = "origin_address", nullable = false)
     private String originAddress;

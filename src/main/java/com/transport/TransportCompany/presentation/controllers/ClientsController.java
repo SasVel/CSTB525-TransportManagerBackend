@@ -1,6 +1,5 @@
-package com.transport.TransportCompany.business.controllers;
+package com.transport.TransportCompany.presentation.controllers;
 
-import java.math.BigInteger;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +22,7 @@ public class ClientsController {
 	}
 
 	@GetMapping("/clients/{id}")
-	public Client GetClientById(@PathVariable("id") BigInteger id)
+	public Client GetClientById(@PathVariable("id") long id)
 	{
 		return clientsService.GetById(id);
 	}

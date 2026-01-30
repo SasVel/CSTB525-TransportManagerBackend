@@ -16,15 +16,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "companies")
-public class Company {
+@Table(name = "vehicle_types")
+public class VehicleType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String type;
 
-    @Column(name = "name", nullable = false)
-    private String name;
-
-    @Column(name = "description", nullable = true)
-    private String description;
+    @Column(name = "necessary_qualification", nullable = false)
+    private String qualification;
 }
