@@ -40,4 +40,8 @@ public class Vehicle {
     @JoinColumn(name = "FK_vehicle_type")
     private VehicleType vehicleType;
 
+	@JsonIgnore
+	@ManyToOne
+    @JoinColumn(name = "FK_Company", nullable = false)
+    private Company company;
 }
