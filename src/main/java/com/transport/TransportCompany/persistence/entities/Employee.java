@@ -12,6 +12,11 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Digits;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -28,9 +33,14 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+	@NotEmpty(message = "Name cannot be empty")
+	@Pattern(regexp = "^[a-zA-Z\\s]+$", message = "Name can only contain letters and spaces")
     @Column(name = "name", nullable = false)
     private String name;
 
+	@NotNull(message = "Salary cannot be null")
+	@Positive(message = "Salary must be positive")
+	@Digits(integer = 10, fraction = 2, message = "Salary must be a valid monetary amount")
     @Column(name = "salary", nullable = false)
     private BigDecimal salary;
 
